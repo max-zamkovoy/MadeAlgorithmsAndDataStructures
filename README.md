@@ -9,3 +9,4 @@
 	6_2: https://contest.yandex.ru/contest/15368/run-report/26189171/
 	7_4: https://contest.yandex.ru/contest/15368/run-report/26396101/
 	8_2: https://contest.yandex.ru/contest/15766/run-report/26969217/
+	16_2: https://contest.yandex.ru/contest/16186/run-report/29312472/
