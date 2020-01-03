@@ -40,24 +40,3 @@ int main() {
     substr += "$" + main_string;
     cout << z_func(substr,substr_len);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
