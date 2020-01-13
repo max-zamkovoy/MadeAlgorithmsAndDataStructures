@@ -2,5 +2,5 @@
 
 ### Yandex.Contest results
 
-	3_1: https://contest.yandex.ru/contest/14768/run-report/29160700/
-	4_3: https://contest.yandex.ru/contest/14768/run-report/29161032/
+	3_1: https://contest.yandex.ru/contest/14768/run-report/29718319/
+	4_3: https://contest.yandex.ru/contest/14768/run-report/29718325/
