@@ -1,42 +1,58 @@
 #include <iostream>
+#include <vector>
 using namespace std;
-string z_func(string some_string, int start){
-//Calculating the z-function values for all the positions
-    int str_len = some_string.length();
-//Empty array for values
-    int z_vals[str_len];
-    for(int i = 0; i < str_len; i++){
-        z_vals[i] = 0;
+
+vector<int> findPattern(const string &pattern, const string &some_string){
+    int z_func[pattern.length()];
+    for(int i = 0; i < pattern.length(); i++){
+        z_func[i] = 0;
     }
-    int r_border = 0;
-    int l_border = 0;
-    string res = "";
-//Here is the z-func algorhitm
-    for(int i = 1; i < str_len; i++){
-        z_vals[i] = 0;
-        if(i <= r_border){
-            z_vals[i] = min(r_border-i+1,z_vals[i-l_border]);
+    vector<int> positions;
+    int l_border = 0, r_border = 0;
+    for(int i = 1; i < pattern.length(); i++){
+        int z_val = 0;
+        if( i <= r_border){
+            z_val = min(r_border - i + 1, z_func[i - l_border]);
         }
-        while(i+z_vals[i] < str_len && some_string[z_vals[i]] == some_string[i+z_vals[i]]){
-            z_vals[i] += 1;
+        while(i + z_val < pattern.length() && pattern[z_val] == pattern[i + z_val]){
+            z_val++;
         }
-        if(i + z_vals[i] - 1 > r_border){
+        if (i + z_val - 1 > r_border) {
             l_border = i;
-            r_border = i + z_vals[i] - 1;
+            r_border = i + z_val - 1;
         }
-        if(i > start && z_vals[i] == start){
-            res += to_string(i - start - 1) + " ";
-        }
+        z_func[i] = z_val;
+
     }
-    return res.substr(0,res.length() - 1);
+    l_border = 0, r_border = 0;
+    for(int i = 0; i < some_string.length(); i++){
+        int z_val = 0;
+        if( i <= r_border){
+            z_val = min(r_border - i + 1, z_func[i - l_border]);
+        }
+        while (i + z_val < some_string.length() && pattern[z_val] == some_string[i + z_val]) {
+            z_val++;
+        }
+        if (i + z_val - 1 > r_border) {
+            l_border = i;
+            r_border = i + z_val - 1;
+        }
+        if(z_val == pattern.length()) positions.push_back(i);
+    }
+    return positions;
 }
+
 
 int main() {
     string substr;
     string main_string;
     cin >> substr;
     cin >> main_string;
-    int substr_len = substr.length();
-    substr += "$" + main_string;
-    cout << z_func(substr,substr_len);
+    vector<int> positions = findPattern(substr,main_string);
+    for(auto ind: positions){
+        cout << ind << " ";
+    }
+    return 0;
 }
+
+
