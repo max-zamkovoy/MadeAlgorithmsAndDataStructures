@@ -2,4 +2,4 @@
 
 ### Yandex.Contest results
 
-	barley-break-b: https://contest.yandex.ru/contest/16110/run-report/29548839/
+	barley-break-b: https://contest.yandex.ru/contest/16110/run-report/29821208/
